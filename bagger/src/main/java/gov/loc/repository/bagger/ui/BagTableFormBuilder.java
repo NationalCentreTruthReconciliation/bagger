@@ -32,12 +32,14 @@ public class BagTableFormBuilder extends TableFormBuilder {
     return componentFactory;
   }
 
-  public JComponent[] add(boolean isRequired, String label, JComponent checkbox) {
+  public JComponent[] add(boolean isRequired, String label, String help,
+                          JComponent checkbox) {
     JComponent textField = new JTextField();
-    return addBinding(isRequired, label, textField, checkbox);
+    return addBinding(isRequired, label, help, textField, checkbox);
   }
 
-  public JComponent[] addList(boolean isRequired, String label, Collection<String> elements, String defaultValue,
+  public JComponent[] addList(boolean isRequired, String label, String help,
+                              Collection<String> elements, String defaultValue,
                               JComponent checkbox) {
     ArrayList<String> listModel = new ArrayList<>();
     for (Iterator<String> iter = elements.iterator(); iter.hasNext();) {
@@ -52,16 +54,17 @@ public class BagTableFormBuilder extends TableFormBuilder {
     dropDownTextField.setSelectedItem(obj);
     JComponent list = dropDownTextField;
 
-    return addBinding(isRequired, label, list, checkbox);
+    return addBinding(isRequired, label, help, list, checkbox);
   }
 
-  public JComponent[] addTextArea(boolean isRequired, String label, JComponent checkbox) {
+  public JComponent[] addTextArea(boolean isRequired, String label, String help,
+                                  JComponent checkbox) {
     JComponent textArea = new NoTabTextArea(3, 40);
     // Binding binding = createBinding(fieldName, textArea);
     // TODO: using the JScrollPane component causes the validation 'x' to
     // disappear
     // JComponent wrappedComponent = new JScrollPane(textArea)
-    return addBinding(isRequired, label, textArea, checkbox);
+    return addBinding(isRequired, label, help, textArea, checkbox);
   }
 
   public JComponent[] addLabel(String labelName) {
@@ -72,11 +75,18 @@ public class BagTableFormBuilder extends TableFormBuilder {
     return new JComponent[] { label };
   }
 
-  public JComponent[] addBinding(boolean isRequired, String labelName, JComponent component, JComponent removeButton) {
+  public JComponent[] addBinding(boolean isRequired, String labelName, String help,
+                                 JComponent component, JComponent removeButton) {
     removeButton.setFocusable(false);
     JLabel label = new JLabel(labelName); // createLabelFor(fieldName,
                                           // component);
-    label.setToolTipText("Double-Click to Edit");
+    if (help == null || help.equals("")) {
+      label.setToolTipText("Double-Click to Edit");
+    }
+    else {
+      label.setToolTipText(help);
+    }
+
     TableLayoutBuilder layoutBuilder = getLayoutBuilder();
     if (!layoutBuilder.hasGapToLeft()) {
       layoutBuilder.gapCol();

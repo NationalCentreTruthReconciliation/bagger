@@ -180,6 +180,7 @@ public class DefaultBagInfo implements Serializable {
             BagInfoField field = new BagInfoField();
             field.setLabel(projectProfile.getFieldName());
             field.setName(field.getLabel());
+            field.setHelp(projectProfile.getHelp());
             field.setComponentType(BagInfoField.TEXTFIELD_COMPONENT);
             field.isEnabled(!projectProfile.isReadOnly());
             field.isEditable(!projectProfile.isReadOnly());
