@@ -4,43 +4,51 @@
       "1.1/Repository": {
         "defaultValue": "National Centre for Truth and Reconciliation (NCTR)",
         "fieldRequired": true,
-        "isReadOnly": true
+        "isReadOnly": true,
+        "helpMessage": "The name of the institution that accepts legal responsibility for the accessioned material"
       }
     }, {
       "1.2/AccessionIdentifier": {
         "defaultValue": "Unassigned",
         "fieldRequired": true,
-        "isReadOnly": true
+        "isReadOnly": true,
+        "helpMessage": "A unique and persistent code that is assigned to the accessioned material"
       }
     }, {
       "1.3.1/OtherIdentifierTypes": {
         "fieldRequired": false,
-        "fieldType": "TA"
+        "fieldType": "TA",
+        "helpMessage": "One or more types of identifiers that identify the material (i.e., Barcode, Receipt Number, etc.)"
       }
     }, {
       "1.3.2/OtherIdentifierValues": {
         "fieldRequired": false,
-        "fieldType": "TA"
+        "fieldType": "TA",
+        "helpMessage": "One or more codes that identify the material"
       }
     }, {
       "1.3.3/OtherIdentifierNotes": {
         "fieldRequired": false,
-        "fieldType": "TA"
+        "fieldType": "TA",
+        "helpMessage": "Any notes relating to fields 1.3.1 and 1.3.2"
       }
     }, {
       "1.4/AccessionTitle": {
-        "fieldRequired": true
+        "fieldRequired": true,
+        "helpMessage": "A title identifying the material"
       }
     }, {
       "1.5/ArchivalUnit": {
         "defaultValue": "NCTR Archives",
         "fieldRequired": true,
-        "isReadOnly": true
+        "isReadOnly": true,
+        "helpMessage": "The archival unit or the aggregate to which the accessioned material will belong"
       }
     }, {
       "1.6/AcquisitionMethod": {
         "fieldRequired": true,
         "defaultValue": "Digital Transfer",
+        "helpMessage": "The method by which the materials are being acquired",
         "valueList": [
           "Digital Transfer",
           "Physical Hard Drive Transfer"
@@ -49,7 +57,8 @@
     }, {
       "1.7/DispositionAuthority": {
         "fieldRequired": false,
-        "defaultValue": "N/A"
+        "defaultValue": "N/A",
+        "helpMessage": "A reference to policies, directives, and agreements that prescribe and allow for the transfer of material to a repository"
       }
     }
   ]
