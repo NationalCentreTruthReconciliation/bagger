@@ -18,6 +18,7 @@ public class BagInfoField implements Serializable {
   private String name = "";
   private String label = "";
   private String value = "";
+  private String help = "";
   private List<String> elements = new ArrayList<>();
   private int componentType = TEXTFIELD_COMPONENT;
   private boolean isEnabled = true;
@@ -33,6 +34,7 @@ public class BagInfoField implements Serializable {
   public BagInfoField(ProfileField projectProfile) {
     this.setLabel(projectProfile.getFieldName());
     this.setName(this.getLabel());
+    this.setHelp(projectProfile.getHelp());
     this.setComponentType(BagInfoField.TEXTFIELD_COMPONENT);
     this.isEnabled(!projectProfile.isReadOnly());
     this.isEditable(!projectProfile.isReadOnly());
@@ -77,6 +79,14 @@ public class BagInfoField implements Serializable {
 
   public String getValue() {
     return this.value;
+  }
+
+  public void setHelp(String h) {
+    this.help = h;
+  }
+
+  public String getHelp() {
+    return this.help;
   }
 
   public void setElements(List<String> e) {
@@ -146,6 +156,7 @@ public class BagInfoField implements Serializable {
     sb.append("\n");
     sb.append("Label: " + getLabel() + "\n");
     sb.append("Name: " + getName() + "\n");
+    sb.append("Help: " + getHelp() + "\n");
     sb.append("Value: " + getValue() + "\n");
     sb.append("Type: " + getComponentType() + "\n");
     sb.append("Elements: " + getElements() + "\n");

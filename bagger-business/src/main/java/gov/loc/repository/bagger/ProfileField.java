@@ -12,10 +12,11 @@ import org.json.JSONWriter;
 
 public class ProfileField implements Serializable{
   private static final long serialVersionUID = 1L;
-  
+
   private String fieldName = "";
   private String fieldValue = "";
   private String fieldType = "";
+  private String help = "";
   private boolean isReadOnly = false;
   private List<String> elements = new ArrayList<>();
   private boolean isRequired;
@@ -27,6 +28,7 @@ public class ProfileField implements Serializable{
   final static String FIELD_READ_ONLY = "isReadOnly";
   final static String FIELD_DEFAULT_VALUE = "defaultValue";
   final static String FIELD_VALUE_LIST = "valueList";
+  final static String FIELD_HELP_MESSAGE = "helpMessage";
 
   public void setFieldName(String s) {
     this.fieldName = s;
@@ -50,6 +52,14 @@ public class ProfileField implements Serializable{
 
   public String getFieldValue() {
     return this.fieldValue;
+  }
+
+  public void setHelp(String h) {
+    this.help = h;
+  }
+
+  public String getHelp() {
+    return this.help;
   }
 
   public void setElements(List<String> s) {
@@ -131,6 +141,11 @@ public class ProfileField implements Serializable{
         boolean isRequired = (Boolean) profileFieldJson.get(FIELD_REQUIRED);
         profileField.setIsRequired(isRequired);
       }
+
+      if (profileFieldJson.has(FIELD_HELP_MESSAGE)) {
+        String helpMessage = (String) profileFieldJson.get(FIELD_HELP_MESSAGE);
+        profileField.setHelp(helpMessage);
+      }
     }
     return profileField;
   }
@@ -151,6 +166,9 @@ public class ProfileField implements Serializable{
     profileWriter.key(FIELD_READ_ONLY).value(isReadOnly());
     if (this.getElements().size() > 0){
       profileWriter.key(FIELD_VALUE_LIST).value(this.getElements());
+    }
+    if (!this.getHelp().equals("")) {
+      profileWriter.key(FIELD_HELP_MESSAGE).value(this.getHelp());
     }
     profileWriter.endObject();
     return writer.toString();
