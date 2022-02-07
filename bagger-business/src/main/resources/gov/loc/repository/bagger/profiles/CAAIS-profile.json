@@ -8,13 +8,6 @@
         "helpMessage": "The name of the institution that accepts legal responsibility for the accessioned material"
       }
     }, {
-      "1.2/AccessionIdentifier": {
-        "defaultValue": "Unassigned",
-        "fieldRequired": true,
-        "isReadOnly": true,
-        "helpMessage": "A unique and persistent code that is assigned to the accessioned material"
-      }
-    }, {
       "1.3.1/OtherIdentifierTypes": {
         "fieldRequired": false,
         "fieldType": "TA",
@@ -38,13 +31,6 @@
         "helpMessage": "A title identifying the material"
       }
     }, {
-      "1.5/ArchivalUnit": {
-        "defaultValue": "NCTR Archives",
-        "fieldRequired": true,
-        "isReadOnly": true,
-        "helpMessage": "The archival unit or the aggregate to which the accessioned material will belong"
-      }
-    }, {
       "1.6/AcquisitionMethod": {
         "fieldRequired": true,
         "defaultValue": "Digital Transfer",
@@ -58,7 +44,92 @@
       "1.7/DispositionAuthority": {
         "fieldRequired": false,
         "defaultValue": "N/A",
-        "helpMessage": "A reference to policies, directives, and agreements that prescribe and allow for the transfer of material to a repository"
+        "helpMessage": "A reference to policies, directives, and agreements that prescribe and allow for the transfer of the material"
+      }
+    }, {
+      "2.1.1/SourceType": {
+        "fieldRequired": false,
+        "helpMessage": "The type of entity submitting the material"
+      }
+    }, {
+      "2.1.2/SourceName": {
+        "fieldRequired": true,
+        "helpMessage": "The name of the donor"
+      }
+    }, {
+      "2.1.3/SourceContactInformation": {
+        "fieldRequired": true,
+        "fieldType": "TA",
+        "helpMessage": "The donor's contact information"
+      }
+    }, {
+      "2.1.4/SourceRole": {
+        "fieldRequired": true,
+        "defaultValue": "Unknown",
+        "helpMessage": "The source's relation to the material"
+      }
+    }, {
+      "2.1.5/SourceNote": {
+        "fieldRequired": false,
+        "helpMessage": "Any other notes about the donor"
+      }
+    }, {
+      "2.2/CustodialHistory": {
+        "fieldRequired": false,
+        "fieldType": "TA",
+        "helpMessage": "Information relating to the chain of custody relating to the material"
+      }
+    }, {
+      "3.1/DateOfMaterial": {
+        "fieldRequired": true,
+        "helpMessage": "A date range indicating the dates the material was created"
+      }
+    }, {
+      "3.2.1/ExtentStatementType": {
+        "fieldRequired": true,
+        "isReadOnly": true,
+        "defaultValue": "Extent received",
+        "helpMessage": "Characterizes the extent statement"
+      }
+    }, {
+      "3.2.2/QuantityAndTypeOfUnits": {
+        "fieldRequired": true,
+        "helpMessage": "Information about the number of type of material being donated"
+      }
+    }, {
+      "3.2.3/ExtentStatementNote": {
+        "fieldRequired": false,
+        "helpMessage": "Any other notes about the extent statement"
+      }
+    }, {
+      "3.3/ScopeAndContent": {
+        "fieldRequired": true,
+        "helpMessage": "A description of the donated material, and how the material was generated"
+      }
+    }, {
+      "3.4/LanguageOfMaterial": {
+        "fieldRequired": true,
+        "helpMessage": "The language(s) and script(s) present in the material"
+      }
+    }, {
+      "4.2.1/RightsStatementType": {
+        "fieldRequired": true,
+        "helpMessage": "The type of rights pertaining to the material"
+      }
+    }, {
+      "4.2.2/RightsStatementValue": {
+        "fieldRequired": true,
+        "helpMessage": "The conditions on which the rights apply to the material"
+      }
+    }, {
+      "4.2.3/RightsStatementNote": {
+        "fieldRequired": false,
+        "helpMessage": "Any other notes about the material's rights"
+      }
+    }, {
+      "6.1/GeneralNote": {
+        "fieldRequired": false,
+        "helpMessage": "Any other notes about the material or donor not captured in the other fields"
       }
     }
   ]
